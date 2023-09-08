@@ -1,0 +1,9 @@
+<h2>Search Results:</h2>
+<ul>
+    {% for result in results %}
+        <li><a href="{% url 'movie_detail' result.id %}">{{ result.title }}</a></li>
+        <!-- You can display more information about each result here -->
+    {% empty %}
+        <li>No results found.</li>
+    {% endfor %}
+</ul>
