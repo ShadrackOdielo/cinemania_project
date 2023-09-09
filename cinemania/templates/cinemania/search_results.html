@@ -1,9 +1,37 @@
-<h2>Search Results:</h2>
-<ul>
-    {% for result in results %}
-        <li><a href="{% url 'movie_detail' result.id %}">{{ result.title }}</a></li>
-        <!-- You can display more information about each result here -->
-    {% empty %}
-        <li>No results found.</li>
-    {% endfor %}
-</ul>
+<!-- cinemania/templates/cinemania/search_results.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... (head content) ... -->
+</head>
+<body>
+    <header>
+        <!-- Add the search bar here -->
+        <form method="get" action="{% url 'search' %}">
+            <input type="text" name="q" placeholder="Search movies">
+            <button type="submit">Search</button>
+        </form>
+    </header>
+
+    <main>
+        <section>
+            <h1>Search Results</h1>
+            <ul class="movie-list">
+                {% for result in results %}
+                <li>
+                    <a href="{% url 'movie_detail' result.id %}">
+                        <img src="{{ result.poster_url }}" alt="{{ result.title }} Poster">
+                        <h2>{{ result.title }}</h2>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <!-- ... (footer content) ... -->
+    </footer>
+</body>
+</html>

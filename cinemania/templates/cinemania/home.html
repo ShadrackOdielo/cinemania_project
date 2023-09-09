@@ -1,0 +1,33 @@
+<!-- cinemania/templates/cinemania/home.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... (head content) ... -->
+</head>
+<body>
+    <header>
+        <!-- ... (header content) ... -->
+    </header>
+
+    <main>
+        <section>
+            <h1>Popular Movies</h1>
+            <ul class="movie-list">
+                {% for movie in movies %}
+                <li>
+                    <a href="{% url 'movie_detail' movie.id %}">
+                        <img src="{{ movie.poster_url }}" alt="{{ movie.title }} Poster">
+                        <h2>{{ movie.title }}</h2>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <!-- ... (footer content) ... -->
+    </footer>
+</body>
+</html>

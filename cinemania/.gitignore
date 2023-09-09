@@ -1,0 +1,11 @@
+env
+.env/
+ 
+# Ignore log files.
+*.log
+# ignore vscode settings
+.vscode/
+# ignore python cache
+__pycache__/
+# ignore python virtualenv
+venv/
